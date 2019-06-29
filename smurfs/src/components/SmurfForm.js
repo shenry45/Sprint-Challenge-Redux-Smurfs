@@ -8,7 +8,8 @@ class SmurfForm extends React.Component {
   state = {
     name: '',
     age: '',
-    height: ''
+    height: '',
+    validationErr: false
   }
 
   handlerChange = e => {
@@ -25,14 +26,22 @@ class SmurfForm extends React.Component {
     if (this.state.name !== '' && !isNaN(this.state.age) && this.state.height !== '') {
       this.props.addSmurf(this.state);
   
-      this.setState({ name: '', age: '', height: ''})
+      this.setState({ name: '', age: '', height: '', validationErr: false});
+    } else {
+      this.setState({ validationErr: true });
     }
 
   }
   
   render() {
+
+    
+
     return (
       <Form onSubmit={this.handlerAddSmurf}>
+        {
+          this.state.validationErr && (<p>Please check to make sure you entered appropriate values.</p>)
+        }
         <label>Name</label>
         <input
           name='name'
