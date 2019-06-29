@@ -12,15 +12,13 @@ class smurfList extends React.Component {
   render() {
     return (
       <div>
-        {this.props.smurfs.map(smurf => <Smurf smurf={smurf} />)}
-        <p>Here are the Smurfs</p>
+        {this.props.smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf} />)}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     smurfs: state.smurfs
   }

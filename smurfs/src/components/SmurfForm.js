@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+
+import { addSmurf } from '../actions/index';
 
 class SmurfForm extends React.Component {
   state = {
@@ -15,10 +18,16 @@ class SmurfForm extends React.Component {
       [e.target.name]: e.target.value
     })
   }
+
+  handlerAddSmurf = e => {
+    e.preventDefault();
+
+    this.props.addSmurf(this.state);
+  }
   
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.handlerAddSmurf}>
         <label>Name</label>
         <input
           name='name'
@@ -38,7 +47,7 @@ class SmurfForm extends React.Component {
           onChange={this.handlerChange}></input>
         <button
           type='submit'
-          //onClick={}
+          onClick={this.handlerAddSmurf}
         >Add Smurf</button>
       </Form>
     )
@@ -56,4 +65,4 @@ const Form = styled.form`
   }
 `;
 
-export default SmurfForm;
+export default connect(null, { addSmurf })(SmurfForm);

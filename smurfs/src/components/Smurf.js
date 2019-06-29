@@ -1,14 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const Smurf = props => {  
   return (
-    <div>
-      <p>Name</p>
-      <p>{props.smurf.name}</p>
-      <p>{props.smurf.age}</p>
-      <p>{props.smurf.height}</p>
-    </div>
+    <SmurfDiv>
+      <p>Name: {props.smurf.name}</p>
+      <p>Age: {props.smurf.age}</p>
+      <p>Height: {props.smurf.height}</p>
+    </SmurfDiv>
   )
 }
+
+const SmurfDiv = styled.div`
+  background: lightgrey;
+  padding: 15px;
+`;
 
 export default Smurf;
