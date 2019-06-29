@@ -12,7 +12,7 @@ class smurfList extends React.Component {
   handlerDeleteSmurf = e => {
     e.preventDefault();
 
-    if (this.props.smurfs.lenth > 1) {
+    if (this.props.smurfs.length > 1) {
       const randSmurfID = this.props.smurfs[Math.ceil(Math.random(this.props.smurfs.length - 1))].id;
   
       this.props.deleteSmurf(randSmurfID);
