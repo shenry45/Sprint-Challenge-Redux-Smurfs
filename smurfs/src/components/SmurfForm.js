@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 class SmurfForm extends React.Component {
   state = {
@@ -17,7 +18,7 @@ class SmurfForm extends React.Component {
   
   render() {
     return (
-      <form>
+      <Form>
         <label>Name</label>
         <input
           name='name'
@@ -39,9 +40,20 @@ class SmurfForm extends React.Component {
           type='submit'
           //onClick={}
         >Add Smurf</button>
-      </form>
+      </Form>
     )
   }
 }
+
+const Form = styled.form`
+  width: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+
+  button {
+    margin: 10px 0;
+  }
+`;
 
 export default SmurfForm;
