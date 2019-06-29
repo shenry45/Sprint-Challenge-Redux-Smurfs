@@ -12,8 +12,13 @@ const Smurf = props => {
 }
 
 const SmurfDiv = styled.div`
+  cursor: pointer;
   background: lightgrey;
   padding: 15px;
+
+  &:hover {
+    border: 1px solid black;
+  }
 `;
 
 export default Smurf;
