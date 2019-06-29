@@ -22,7 +22,12 @@ class SmurfForm extends React.Component {
   handlerAddSmurf = e => {
     e.preventDefault();
 
-    this.props.addSmurf(this.state);
+    if (this.state.name !== '' && !isNaN(this.state.age) && this.state.height !== '') {
+      this.props.addSmurf(this.state);
+  
+      this.setState({ name: '', age: '', height: ''})
+    }
+
   }
   
   render() {

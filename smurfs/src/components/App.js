@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import SmurfList from './SmurfList';
 import SmurfForm from './SmurfForm';
+import Header from './Header';
+import Home from './Home';
 
 import './App.css';
-/*
- to wire this component up you're going to need a few things.
- I'll let you do this part on your own. 
- Just remember, `how do I `connect` my components to redux?`
- `How do I ensure that my component links the state to props?`
- */
+
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>The Smurfs</h1>
-        <SmurfList />
-        <hr />
-        <SmurfForm />
-        <footer>
-          <p>The internet's best Smurf database.</p>
-        </footer>
-      </div>
+      <Router>
+        <div className="App">
+          <Header />
+
+          <h1>The Smurfs</h1>
+          <Route exact path="/" component={Home} />
+          <Route path="/list" component={SmurfList} />
+          <Route path="/add" component={SmurfForm} />
+          <footer>
+            <p>The internet's best Smurf database.</p>
+          </footer>
+        </div>
+      </Router>
     );
   }
 }

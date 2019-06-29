@@ -10,6 +10,8 @@ class smurfList extends React.Component {
   }
 
   render() {
+    this.props.fetchingSmurfs && (<p>Loading</p>)
+
     return (
       <div>
         {this.props.smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf} />)}
@@ -20,7 +22,8 @@ class smurfList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    smurfs: state.smurfs
+    smurfs: state.smurfs,
+    fetchingSmurfs: state.fetchingSmurfs
   }
 }
 

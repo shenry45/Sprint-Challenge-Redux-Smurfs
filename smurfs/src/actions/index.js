@@ -20,7 +20,7 @@ export const FAILURE_SMURFS = 'FAILURE_SMURFS';
 */
 
 export const getSmurfs = () => dispatch => {
-  dispatch({ type: FETCHING_SMURFS });
+  dispatch({ type: FETCHING_SMURFS, payload: true });
   axios
     .get('http://localhost:3333/smurfs')
     .then(res => dispatch({ type: SUCCESS_SMURFS, payload: res.data }))
@@ -28,6 +28,7 @@ export const getSmurfs = () => dispatch => {
 }
 
 export const addSmurf = state => dispatch => {
+  dispatch({ type: FETCHING_SMURFS, payload: true });
   axios
     .post('http://localhost:3333/smurfs', {
       name: state.name,
